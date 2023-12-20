@@ -25,7 +25,8 @@
     "lint": "npx eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "npx prettier --check src",
     "prettier:fix": "npx prettier --write src",
-    "coverage": "nyc npm run test -- --coverage --watchAll=false"
+    "coverage": "nyc npm run test -- --coverage --watchAll=false",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "eslintConfig": {
     "extends": [
