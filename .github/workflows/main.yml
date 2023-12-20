@@ -32,7 +32,7 @@ jobs:
         run: npm run test
 
       - name: Code Coverage
-        run: npm run coverage && npm run report
+        run: npm run test:coverage && npm run report
 
       - uses: codecov/codecov-action@v3
         with:

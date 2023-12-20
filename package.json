@@ -18,7 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "inst": "npx nyc instrument --compact=false src instrumented",
+    "start": "npm run inst && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -26,7 +27,12 @@
     "prettier:check": "npx prettier --check src",
     "prettier:fix": "npx prettier --write src",
     "coverage": "nyc npm run test -- --coverage --watchAll=false",
-    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "ct:run": "npx cypress run --component",
+    "ct:open": "npx cypress open --component",
+    "cy:run": "npx cypress run --e2e",
+    "cy:open": "npx cypress open --e2e",
+    "test:coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run ct:run && npm run cy:run"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +53,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cross-env": "^7.0.3",
     "cypress": "^13.6.1",
     "eslint": "^8.56.0",
     "nyc": "^15.1.0",

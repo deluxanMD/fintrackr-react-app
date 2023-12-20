@@ -1,0 +1,4 @@
+{
+  "include": ["src/**.cy.ts*", "src/**.cy.js*"],
+  "all": true
+}
