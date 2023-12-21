@@ -31,5 +31,11 @@ jobs:
       - name: React Test
         run: npm run test
 
+      - name: Cypress Component Test
+        run: npm run ct:run
+
+      - name: Cypress e2e Test
+        run: npm run cy:run
+
       - name: Build Project
         run: npm run build
